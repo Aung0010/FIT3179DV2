@@ -38,20 +38,20 @@
     },
     {
       "data": {
-        "url": "data/geoBoundaries-MYS-ADM1_simplified.json",
+        "url": "geoBoundaries-MYS-ADM1_simplified.json",
         "format": {"type": "topojson", "feature": "geoBoundaries-MYS-ADM1_simplified"}
       },
       "mark": {"type": "geoshape", "fill": "#0b0b0b", "stroke": "black"}
     },
     {
-      "data": {"url": "data/prefered_states_by_countries.csv"},
+      "data": {"url": "prefered_states_by_countries.csv"},
       "transform": [
         {"filter": "datum.country == CountrySelection"},
         {
           "lookup": "state",
           "from": {
             "data": {
-              "url": "data/geoBoundaries-MYS-ADM1_simplified.json",
+              "url": "geoBoundaries-MYS-ADM1_simplified.json",
               "format": {"type": "topojson", "feature": "geoBoundaries-MYS-ADM1_simplified"}
             },
             "key": "properties.shapeName",
@@ -83,3 +83,4 @@
     "axis": { "labelFontSize": 12, "titleFontSize": 13 }
   }
 }
+
