@@ -146,11 +146,11 @@
   <script>
   const opts = { actions: false };
   
-  vegaEmbed('#gdp_tourism', 'js/gdp_tourism.json', opts).catch(console.error);
-  vegaEmbed('#bubble', 'js/bubble.json', opts).catch(console.error);
+  vegaEmbed('#gdp_tourism', 'gdp_tourism.json', opts).catch(console.error);
+  vegaEmbed('#bubble', 'bubble.json', opts).catch(console.error);
   
   // Flow network map with control movement
-  vegaEmbed('#flownetwork_map', 'js/flownetwork.json', opts)
+  vegaEmbed('#flownetwork_map', 'flownetwork.json', opts)
     .then(({ view }) => {
       const nativeBindings = document.querySelector('#flownetwork_map .vega-bindings');
       const target = document.getElementById('flowControls');
@@ -161,7 +161,7 @@
     .catch(console.error);
   
   // Choropleth map with control movement
-  vegaEmbed('#choropleth_map', 'js/choropleth.json', opts)
+  vegaEmbed('#choropleth_map', 'choropleth.json', opts)
     .then(({ view }) => {
       const nativeBindings = document.querySelector('#choropleth_map .vega-bindings');
       const target = document.getElementById('choroplethControls');
@@ -171,8 +171,9 @@
     })
     .catch(console.error);
   
-  vegaEmbed('#rank_bar', 'js/rank_bar.json', opts).catch(console.error);
-  vegaEmbed('#heatmap', 'js/heatmap.json', opts).catch(console.error);
+  vegaEmbed('#rank_bar', 'rank_bar.json', opts).catch(console.error);
+  vegaEmbed('#heatmap', 'heatmap.json', opts).catch(console.error);
 </script>
 </body>
+
 
