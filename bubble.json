@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+  "width": 800,
+  "height": 400,
+  "data": { "url": "data/tourist_gdp.csv" },
+
+  "transform": [
+    {
+      "calculate": "datum.year <= 2019 ? 'Before COVID-19' : 'After COVID-19'",
+      "as": "period"
+    }
+  ],
+
+  "mark": { "type": "point", "filled": true, "opacity": 0.85 },
+
+  "encoding": {
+    "x": {
+      "field": "expenditure_rm_bil",
+      "type": "quantitative",
+      "title": "Tourism Expenditure (RM Billion)",
+      "axis": { "format": ",.0f" }
+    },
+    "y": {
+      "field": "gdp_rm_bil",
+      "type": "quantitative",
+      "title": "GDP (RM Billion)",
+      "axis": { "format": ",.0f" }
+    },
+    "size": {
+    "field": "tourists",
+    "type": "quantitative",
+    "title": "Tourists",
+    "scale": { "range": [40, 900] },
+    "legend": {
+    "orient": "none",
+    "legendX": 20,
+    "legendY": 210,
+    "direction": "vertical",
+    "labelFontSize": 12,
+    "titleFontSize": 12,
+    "fillColor": "#ffffffcc",
+    "strokeColor": "#ccc",
+    "cornerRadius": 6,
+    "padding": 6
+  }
+}
+,
+    "color": {
+      "field": "period",
+      "type": "nominal",
+      "title": "Period",
+      "scale": {
+        "domain": ["Before COVID-19", "After COVID-19"],
+        "range": ["#1e88e5", "#ff7043"]
+      },
+      "legend": {
+      "orient": "none",
+      "legendX": 20,
+      "legendY": 150,
+      "title": "Period",
+      "direction": "vertical",
+      "labelFontSize": 10.2,
+      "titleFontSize": 10.2,
+      "fillColor": "#ffffffcc", 
+      "strokeColor": "#ccc",
+      "cornerRadius": 6,
+      "padding": 6
+}
+
+    },
+    "tooltip": [
+      { "field": "year", "title": "Year:" },
+      { "field": "expenditure_rm_bil", "title": "Tourism Expenditure:", "format": ",.0f" },
+      { "field": "gdp_rm_bil", "title": "GDP:", "format": ",.0f" },
+      { "field": "tourists", "title": "Number of Tourists:", "format": ",.1f" },
+      { "field": "period", "title": "Period:" }
+    ]
+  },
+
+  "title": "Tourism Expenditure vs GDP (Bubble size = Tourists)",
+
+  "config": {
+    "axis": { "labelFontSize": 12, "titleFontSize": 13 },
+    "legend": { "labelFontSize": 11, "titleFontSize": 12 },
+    "title": { "fontSize": 15, "anchor": "start" }
+  }
+}

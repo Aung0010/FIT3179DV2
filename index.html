@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Linking Tourism Growth to Malaysia’s Economic Performance</title>
+
+  <!-- Vega libs -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Google Fonts to match the CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;500;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="css/style.css" media="all">
+</head>
+
+<body>
+  <div class="page">
+    <h0>Malaysia Tourism & GDP</h0>
+    <!-- SECTION 1: h1-level already shown above -->
+    <!-- Container: three line charts -->
+    <h1>National Overview</h1>
+    <div class="section">
+      <div class="card viz center" id="gdp_tourism"></div>
+    </div>
+
+    <!-- SECTION 2 -->
+<h2>How Tourism Spending Moved with Malaysia’s GDP?</h2>
+
+<div class="section grid-2">
+  <div class="card-text">
+    <div class="summary">
+      <ul>
+        <li><strong>Before 2020</strong>, there was a clear pattern and a strong <strong>positive correlation</strong> between tourism expenditure and GDP.</li><br>
+        <li>In <strong>2021</strong>, <strong>GDP rose</strong> but <strong>tourism expenditure remained low</strong>, suggesting that the <strong>economy had begun recovering</strong> while <strong>borders were still closed</strong>.</li><br>
+        <li><strong>GDP</strong> reached its <strong>lowest point in 2020</strong> due to the global economic impact of the <strong>COVID-19 pandemic</strong>, while <strong>tourism expenditure</strong> hit its <strong>minimum in 2021</strong> when international travel restrictions persisted.</li>
+        </ul>
+    </div>
+  </div>
+  <div class="card viz" id="bubble"></div>
+</div>
+
+
+
+
+    <!-- SECTION 3 -->
+<h3>Where did the visitors come from?</h3>
+<div class="section grid-2">
+  <div class="card viz" id="flownetwork_map"></div>
+  <div>
+    <div id="flowControls" class="control-strip alt-bg"></div>
+    <div class="card-text">
+      <div class="summary">
+        <ul>
+          <li><strong>Most visitors originated from neighbouring Asian countries</strong> and <strong>Australia</strong>, reflecting Malaysia’s strong regional travel connections.</li><br>
+          <li>Across the years, <strong>Singapore, Indonesia, Thailand, China, Brunei</strong> and <strong>India</strong> consistently emerged as Malaysia’s <strong>top</strong> visitor sources.</strong></li><br>
+          <li><strong>Tourism inflows are heavily Asia-centric</strong>, suggesting that Malaysia could broaden its promotion to capture emerging non-Asian markets in the future.</li>
+        </ul>
+        <p><small>Note: Origin (blue) points are based on major flight cities.</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- SECTION 4 -->
+<h4>Which states stood out in 2023?</h4>
+<div class="section grid-2">
+  <!-- LEFT column with dropdown above text card -->
+  <div>
+    <div id="choroplethControls" class="control-strip alt-bg"></div>
+    <div class="card-text">
+      <div class="summary">
+        <ul>
+          <li><strong>Neighbouring</strong> countries favoured <strong>border</strong> states: <strong>Singapore → Johor</strong>, <strong>Thailand → Kedah/Perlis </strong>, and <strong>Brunei → Sabah</strong>, reflecting strong <strong>cross-border tourism</strong>.</li><br>
+
+          <li><strong>China </strong>tourists concentrated in <strong>Sabah</strong>, driven by <strong>distinctive Borneo attractions, direct flights</strong> and <strong>short travel distance.</strong>.</li><br>
+
+          <li><strong>Kuala Lumpur</strong> and <strong>Selangor</strong> stood out as <strong>major transport and urban hubs</strong> with strong <strong>shopping and airport connectivity</strong>.</li>
+        </ul>
+
+        <p><small>Note: Values indicate each country's <strong>in-country visitor share</strong>, not Malaysia’s total arrivals.</small></p>
+      </div>
+    </div>
+  </div>
+  <div class="card viz" id="choropleth_map"></div>
+</div>
+
+
+<div class="section grid-2">
+  <div class="card viz" id="rank_bar"></div>
+  <div class="card-text">
+    <div class="summary">
+      <ul>
+        <li>States with high GDP, such as <strong>Selangor</strong> and <strong>Kuala Lumpur</strong>, did not necessarily have the most tourists.</li><br>
+
+        <li><strong>Johor</strong> and <strong>Sabah</strong> attracted large visitor numbers despite lower GDP, reflecting <strong>border proximity</strong> and <strong>natural appeal</strong>.</li><br>
+
+        <li>Rising tourist flows in smaller economies like <strong>Perlis</strong> and <strong>Kedah</strong> show that <strong>accessibility and niche attractions</strong> drive demand more than GDP size.</li><br>
+        <li><strong>Peneng</strong> had<strong> high GDP </strong> despite lower number of tourists.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- SECTION 5 -->
+<h5>How Tourist Spending Priorities Have Shifted Over Time?</h5>
+
+<div class="section grid-2">
+  <div class="card-text">
+    <div class="summary">
+      <ul>
+        <li><strong>Shopping</strong> consistently accounted for the <strong>largest share of tourist spending</strong> each year, reflecting Malaysia’s strong retail appeal.</li><br>
+        <li><strong>Shopping, accommodation, food & beverages, and transportation</strong> together made up the <strong>majority of total tourist expenditure</strong> throughout the period.</li><br>
+        <li><strong>Accommodation spending</strong> showed a <strong>steady recovery</strong> after 2022, aligning with the reopening of international borders.</li>
+      </ul>
+      <p><small>Note : Data for 2021 is omitted due to insufficient records during the lockdown period.</small></p>
+    </div>
+  </div>
+  <div class="card viz right" id="heatmap"></div>
+</div>
+
+
+
+
+
+    <footer>
+      <p class="small-font">Data Visualisation 2 —</p>
+    </footer>
+  </div>
+
+  <!-- libs -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <script>
+  const opts = { actions: false };
+  
+  vegaEmbed('#gdp_tourism', 'js/gdp_tourism.json', opts).catch(console.error);
+  vegaEmbed('#bubble', 'js/bubble.json', opts).catch(console.error);
+  
+  // Flow network map with control movement
+  vegaEmbed('#flownetwork_map', 'js/flownetwork.json', opts)
+    .then(({ view }) => {
+      const nativeBindings = document.querySelector('#flownetwork_map .vega-bindings');
+      const target = document.getElementById('flowControls');
+      if (nativeBindings && target) {
+        target.appendChild(nativeBindings);
+      }
+    })
+    .catch(console.error);
+  
+  // Choropleth map with control movement
+  vegaEmbed('#choropleth_map', 'js/choropleth.json', opts)
+    .then(({ view }) => {
+      const nativeBindings = document.querySelector('#choropleth_map .vega-bindings');
+      const target = document.getElementById('choroplethControls');
+      if (nativeBindings && target) {
+        target.appendChild(nativeBindings);
+      }
+    })
+    .catch(console.error);
+  
+  vegaEmbed('#rank_bar', 'js/rank_bar.json', opts).catch(console.error);
+  vegaEmbed('#heatmap', 'js/heatmap.json', opts).catch(console.error);
+</script>
+</body>

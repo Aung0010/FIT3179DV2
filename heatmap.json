@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+  "width": 700,
+  "height": 400,
+  "data": {
+    "url": "data/Expenditure_Component.csv",
+    "format": { "type": "csv" }
+  },
+  "title": { 
+    "text": "Tourism Expenditure Breakdown",
+    "fontSize": 16,
+    "anchor": "middle",
+    "color": "black"
+
+  },
+
+  "transform": [
+    {
+      "fold": [
+        "Accomodation",
+        "Food&Beverage",
+        "Transportaion",
+        "Shopping",
+        "Medical",
+        "Entertainment",
+        "Organised Tours",
+        "Others"
+      ],
+      "as": ["component", "share"]
+    },
+    { "calculate": "toNumber(datum.share)", "as": "share_num" }
+  ],
+
+  "mark": { "type": "rect", "stroke": "white", "strokeWidth": 0.5 },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "sort": ["2015","2016","2017","2018","2019","2020","2022","2023"]
+    },
+    "y": {
+      "field": "component",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Shopping",
+        "Accomodation",
+        "Food&Beverage",
+        "Transportaion",
+        "Entertainment",
+        "Medical",
+        "Organised Tours",
+        "Others"
+      ]
+    },
+    "color": {
+      "field": "share_num",
+      "type": "quantitative",
+      "title": "Share (%)",
+      "scale": {
+        "type": "linear",
+        "domain": [0, 40],
+        "range": ["#e6f0ff", "#3182bd"]
+      }
+    },
+    "tooltip": [
+      { "field": "component", "title": "Component" },
+      { "field": "Year", "title": "Year" },
+      { "field": "share_num", "title": "Share (%)", "format": ".1f" }
+    ]
+  },
+
+  "config": {
+    "axis": { "labelFontSize": 12, "titleFontSize": 13 },
+    "legend": { "labelFontSize": 11, "titleFontSize": 11 },
+    "title": { "fontSize": 14 }
+  }
+}

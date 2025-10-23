@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+  "width": 700,
+  "height": 400,
+  "data": {"url": "data/gdp_state_2023.csv"},
+
+  "transform": [
+    {"filter": "datum.Sector == 'Overall'"},
+    {"calculate": "toNumber(datum.Value)", "as": "gdp_overall"},
+    {
+      "window": [{"op": "rank", "as": "gdp_rank"}],
+      "sort": [{"field": "gdp_overall", "order": "descending"}]
+    },
+    {"calculate": "datum.gdp_rank <= 5 ? 'Top 5 GDP' : 'Other'", "as": "hl_group"}
+  ],
+
+  "mark": {"type": "bar", "cornerRadiusEnd": 3},
+
+  "encoding": {
+    "y": {
+      "field": "State", 
+      "type": "nominal", 
+      "sort": {"field": "gdp_overall", "order": "descending"},
+      "title": null
+    },
+    "x": {
+      "field": "gdp_overall", 
+      "type": "quantitative", 
+      "title": "GDP Overall (RM mil)", 
+      "axis": {"format": ",.0f"}
+    },
+    "color": {
+      "field": "hl_group",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Top 5 GDP", "Other"],
+        "range": ["#1E88E5", "#BDBDBD"]
+      },
+      "legend": {"title": null}
+    },
+    "tooltip": [
+      {"field": "State", "title": "State"},
+      {"field": "gdp_overall", "title": "GDP Overall (RM mil)", "format": ",.0f"},
+      {"field": "gdp_rank", "title": "Rank"}
+    ]
+  },
+
+  "title": {"text": "Which Malaysia States Have the Highest GDP?", "fontSize": 16, "color": "black"},
+  "config": {
+    "axis": {"labelFontSize": 12, "titleFontSize": 13}, 
+    "title": {"fontSize": 14}
+  }
+}

@@ -1,0 +1,150 @@
+/* --- Base --- */
+body {
+  background-color: #f8f8f5;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-weight: 100;
+}
+
+.page {
+  width: 1300px;
+  background: #fff;
+  margin: 20px auto;
+  padding: 30px 50px;
+  box-shadow: rgba(0,0,0,.1) 0 4px 12px;
+  border-radius: 15px;
+}
+
+.control-strip {
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  box-shadow: rgba(0,0,0,.04) 0 2px 6px;
+  padding: 6px 10px;       /* ↓ smaller height */
+  margin-bottom: 55px;      /* ↓ tighter spacing */
+  max-width: 350px;        /* ↓ controls the overall width */
+}
+
+.control-strip.alt-bg {
+  background: #f2d0ba;
+  border-color: #a3d3ea;
+}
+
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-row label {
+  white-space: nowrap;
+  font-size: 14px;
+  color: #333;
+}
+
+.control-row input[type="range"],
+.control-row select {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.vega-bind-name {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-family: Arial, serif;
+}
+
+.vega-bind input[type="range"] {
+  width: 350px;
+}
+
+.vega-bind select {
+  width: 350px !important;
+}
+
+#flowControls .vega-bind-value {
+  color: rgb(224, 217, 217) !important;
+  font-weight: 500;
+}
+
+
+
+/* --- Headings --- */
+h0 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Noto Serif', serif;
+  margin: 0 0 10px;
+}
+h1,h2, h3, h4, h5 {
+  font-family:'Noto Serif', serif;
+  margin:40px 0 14px;
+  line-height:1.2;
+}
+h1 { font-size:28px; font-weight:700; border-bottom:3px solid #1e88e5; padding-bottom:6px; color:#000000; }
+h2 { font-size:28px; font-weight:700; border-bottom:3px solid #1e88e5; padding-bottom:6px; color:#000000; }
+h3 { font-size:28px; font-weight:700; border-bottom:3px solid #1e88e5; padding-bottom:6px; color:#000000; }
+h4 { font-size:28px; font-weight:700; border-bottom:3px solid #1e88e5; padding-bottom:6px; color:#000000; }
+h5 { font-size:28px; font-weight:700; border-bottom:3px solid #1e88e5; padding-bottom:6px; color:#000000; }
+
+/* --- Grid & cards --- */
+.section { margin-bottom: 24px; }
+.grid-1 { display:grid; grid-template-columns: 1fr; gap:18px; }
+.grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:start; }
+
+.card-chart {
+  background: #ffffff;              /* charts stay white */
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 18px 18px 12px;
+  box-shadow: rgba(0,0,0,.04) 0 2px 6px;
+}
+
+.card-text {
+  background: #fff8db;              /* soft yellow for text */
+  border: 1px solid #f0e09a;
+  border-radius: 14px;
+  padding: 18px 24px 14px 18px;
+  box-shadow: rgba(0,0,0,.05) 0 2px 6px;
+  width: 100%;
+  min-height: 400px;
+  max-width: 330px;
+
+  /* font consistency */
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 380;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+/* --- Visualization containers --- */
+.viz { display:flex; justify-content:flex-start; }
+.viz.center { justify-content:center; }
+.viz.right  { justify-content:flex-end; }
+.viz > .vega-embed, .viz canvas, .viz svg { display:block; margin:0; }
+
+/* --- Summaries --- */
+.summary {
+  font-size:16px; line-height:1.6; color:#444;
+}
+.summary small { color:#777; }
+
+/* --- Footer --- */
+footer { margin-top: 40px; border-top:1px solid #ddd; padding-top: 16px; text-align:center; }
+.small-font { font-size:13px; color:#666; }
+
+.card-text ul {
+  padding-left: 20px;   /* default is ~40px, which is why it looks offset */
+  margin-left: 0;
+}
+
+
+

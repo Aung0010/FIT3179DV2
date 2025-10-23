@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#badff2",
+  "view": {"stroke": null},
+  "width": 800,
+  "height": 517,
+  "title": {
+    "text": "Whichs Malaysian States Attract the Most Tourists by Country ?",
+    "fontSize": 16,
+    "anchor": "middle",
+    "color": "black",
+    "offset": 20
+  },
+  "padding": { "top": 30, "left": 20, "right": 20, "bottom": 20 },
+  "projection": {"type": "mercator", "center": [109.5, 3.5], "scale": 2400},
+
+  "params": [
+    {
+      "name": "CountrySelection",
+      "value": "Singapore",
+      "bind": {
+        "input": "select",
+        "name": "Select Country: ",
+        "options": ["Singapore", "Thailand", "Indonesia", "China", "Brunei"]
+      }
+    }
+  ],
+
+  "layer": [
+    {
+      "data": {"graticule": {"step": [5, 5]}},
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#bbc1c8",
+        "strokeWidth": 0.6
+      }
+    },
+    {
+      "data": {
+        "url": "data/geoBoundaries-MYS-ADM1_simplified.json",
+        "format": {"type": "topojson", "feature": "geoBoundaries-MYS-ADM1_simplified"}
+      },
+      "mark": {"type": "geoshape", "fill": "#0b0b0b", "stroke": "black"}
+    },
+    {
+      "data": {"url": "data/prefered_states_by_countries.csv"},
+      "transform": [
+        {"filter": "datum.country == CountrySelection"},
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/geoBoundaries-MYS-ADM1_simplified.json",
+              "format": {"type": "topojson", "feature": "geoBoundaries-MYS-ADM1_simplified"}
+            },
+            "key": "properties.shapeName",
+            "fields": ["type", "geometry"]
+          }
+        },
+        {"calculate": "toNumber(datum.percent)", "as": "percent_num"}
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+      "color": {
+      "field": "percent_num",
+      "type": "quantitative",
+      "scale": {
+      "range": ["#ffd699", "#ffb366", "#ff8000", "#e65c00", "#cc3300"]},
+      "title": "% Visitors"
+}
+,
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {"field": "percent_num", "type": "quantitative", "title": "% Visitors", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "title": { "fontSize": 14, "font": "sans-serif", "color": "black" },
+    "axis": { "labelFontSize": 12, "titleFontSize": 13 }
+  }
+}

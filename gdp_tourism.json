@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+  "spacing": 30,
+  "hconcat": [
+    {
+      "width": 250,
+      "height": 250,
+      "data": { "url": "data/tourist_gdp.csv" },
+      "layer": [
+        {
+          "data": { "values": [ { "year": "2021" } ] },
+          "mark": { "type": "rule", "strokeDash": [5,5], "strokeWidth": 2, "color": "#6c757d" },
+          "encoding": { "x": { "field": "year", "type": "ordinal" } }
+        },
+        {
+          "data": { "values": [ { "year": "2021", "y": 1000000, "label": "Malaysia Lockdown in 2021" } ] },
+          "mark": { "type": "text", "fontSize": 11, "fontWeight": "bold", "color": "#6c757d", "align": "left", "baseline": "top", "dx": 6, "dy": 0 },
+          "encoding": {
+            "x": { "field": "year", "type": "ordinal" },
+            "y": { "field": "y", "type": "quantitative" },
+            "text": { "field": "label" }
+          }
+        },
+        {
+          "mark": { "type": "line", "point": true, "color": "#964B00" },
+          "encoding": {
+            "x": { "field": "year", "type": "ordinal", "title": "Year" },
+            "y": { "field": "tourists", "type": "quantitative", "title": "Tourist Arrivals" },
+            "tooltip": [
+              { "field": "year", "title": "Year" },
+              { "field": "tourists", "title": "Tourists", "format": ",.0f" }
+            ]
+          }
+        }
+      ],
+      "title": { "text": "Total Tourist Arrivals in Malaysia", "color": "black" }
+    },
+
+    {
+      "width": 250,
+      "height": 250,
+      "data": { "url": "data/tourist_gdp.csv" },
+      "layer": [
+        {
+          "data": { "values": [ { "year": "2020" } ] },
+          "mark": { "type": "rule", "strokeDash": [5,5], "strokeWidth": 2, "color": "#6c757d" },
+          "encoding": { "x": { "field": "year", "type": "ordinal" } }
+        },
+        {
+          "data": { "values": [ { "year": "2020", "y": 1300000, "label": "Pandemic shock in 2020" } ] },
+          "mark": { "type": "text", "fontSize": 11, "fontWeight": "bold", "color": "#6c757d", "align": "left", "baseline": "top", "dx": 6, "dy": -6 },
+          "encoding": {
+            "x": { "field": "year", "type": "ordinal" },
+            "y": { "field": "y", "type": "quantitative" },
+            "text": { "field": "label" }
+          }
+        },
+        {
+          "mark": { "type": "line", "point": true, "color": "#f57dc9" },
+          "encoding": {
+            "x": { "field": "year", "type": "ordinal", "title": "Year" },
+            "y": { "field": "gdp_rm_bil", "type": "quantitative", "title": "GDP (RM Billion)" },
+            "tooltip": [
+              { "field": "year", "title": "Year" },
+              { "field": "gdp_rm_bil", "title": "GDP (RM Bil)", "format": ",.0f" }
+            ]
+          }
+        }
+      ],
+      "title": "GDP of Malaysia"
+    },
+
+    {
+      "width": 250,
+      "height": 250,
+      "data": { "url": "data/tourist_gdp.csv" },
+      "layer": [
+        {
+          "data": { "values": [ { "year": "2022" } ] },
+          "mark": { "type": "rule", "strokeDash": [5,5], "strokeWidth": 2, "color": "#6c757d" },
+          "encoding": { "x": { "field": "year", "type": "ordinal" } }
+        },
+        {
+          "data": { "values": [ { "year": "2022", "y": 28000, "label": "Rebound starts in 2022" } ] },
+          "mark": { "type": "text", "fontSize": 11, "fontWeight": "bold", "color": "#6c757d", "align": "left", "baseline": "top", "dx": 6, "dy": -6 },
+          "encoding": {
+            "x": { "field": "year", "type": "ordinal" },
+            "y": { "field": "y", "type": "quantitative" },
+            "text": { "field": "label" }
+          }
+        },
+        {
+          "mark": { "type": "line", "point": true, "color": "#d5c57e" },
+          "encoding": {
+            "x": { "field": "year", "type": "ordinal", "title": "Year" },
+            "y": { "field": "expenditure_rm_bil", "type": "quantitative", "title": "Tourism Total Expenditure (RM Billion)" },
+            "tooltip": [
+              { "field": "year", "title": "Year" },
+              { "field": "expenditure_rm_bil", "title": "Tourism Expenditure (RM Bil)", "format": ",.0f" }
+            ]
+          }
+        }
+      ],
+      "title": "Tourism Total Expenditure"
+    }
+  ],
+  "config": {
+    "axis": { "labelFontSize": 12, "titleFontSize": 13 },
+    "title": { "fontSize": 14 }
+  }
+}

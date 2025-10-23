@@ -1,0 +1,197 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Top 10 Tourist Countries to Malaysia by Year",
+    "fontSize": 16,
+    "anchor": "start",
+    "color": "black",
+    "offset": 20
+  },
+  "width": 900,
+  "height": 580,
+  "background": "lightgray",
+
+  "params": [
+    {
+      "name": "YearSelection",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2015,
+        "max": 2023,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+
+  "projection": {
+    "type": "equalEarth",
+    "center": [100, 0],
+    "scale": 300
+  },
+
+  "layer": [
+    {
+      "data": {
+        "url": "data/ne_50m_admin_0_countries.json",
+        "format": { "type": "topojson", "feature": "ne_50m_admin_0_countries" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#7f92a8",
+        "stroke": "#050505",
+        "strokeWidth": 0.5
+      }
+    },
+
+    {
+      "data": { "url": "data/top10_tourist_country.csv" },
+      "transform": [
+        { "filter": "datum.Year == YearSelection" },
+        {
+          "calculate": "toNumber(replace(datum.Number_of_Tourist, /[,\"]/g, ''))",
+          "as": "Tourists"
+        },
+        {
+          "window": [{ "op": "rank", "as": "rank" }],
+          "sort": [{ "field": "Tourists", "order": "descending" }]
+        },
+        { "filter": "datum.rank <= 10" },
+        {
+          "lookup": "Country",
+          "from": {
+            "data": {
+              "values": [
+                { "Country": "Singapore", "origin_latitude": 1.3521, "origin_longitude": 103.8198 },
+                { "Country": "Indonesia", "origin_latitude": -6.2088, "origin_longitude": 106.8456 },
+                { "Country": "Thailand", "origin_latitude": 13.7563, "origin_longitude": 100.5018 },
+                { "Country": "China", "origin_latitude": 31.230, "origin_longitude": 116.4074 },
+                { "Country": "Brunei", "origin_latitude": 4.9031, "origin_longitude": 114.9398 },
+                { "Country": "India", "origin_latitude": 28.6139, "origin_longitude": 77.2090 },
+                { "Country": "South Korea", "origin_latitude": 37.5652, "origin_longitude": 126.9774 },
+                { "Country": "Vietnam", "origin_latitude": 21.0278, "origin_longitude": 105.8342 },
+                { "Country": "Australia", "origin_latitude": -33.8727, "origin_longitude": 151.2057 },
+                { "Country": "Philippines", "origin_latitude": 14.5995, "origin_longitude": 120.9842 },
+                { "Country": "Japan", "origin_latitude": 35.6895, "origin_longitude": 139.6917 },
+                { "Country": "Pakistan", "origin_latitude": 33.6844, "origin_longitude": 73.0479 },
+                { "Country": "Bangladesh", "origin_latitude": 23.8103, "origin_longitude": 90.4125 },
+                { "Country": "Taiwan", "origin_latitude": 25.0330, "origin_longitude": 121.5654 }
+              ]
+            },
+            "key": "Country",
+            "fields": ["origin_latitude", "origin_longitude"]
+          }
+        },
+        {
+          "filter": "isValid(datum.origin_longitude) && isValid(datum.origin_latitude) && isFinite(datum.Tourists)"
+        },
+        { "calculate": "3.139", "as": "dest_latitude" },
+        { "calculate": "101.6869", "as": "dest_longitude" },
+        { "calculate": "'Malaysia (Kuala Lumpur)'", "as": "Destination" }
+      ],
+
+      "layer": [
+        {
+          "mark": { "type": "rule", "color": "#000000", "opacity": 0.9, "strokeCap": "round" },
+          "encoding": {
+            "longitude": { "field": "origin_longitude" },
+            "latitude": { "field": "origin_latitude" },
+            "longitude2": { "field": "dest_longitude" },
+            "latitude2": { "field": "dest_latitude" },
+            "strokeWidth": {
+              "field": "Tourists",
+              "type": "quantitative",
+              "scale": { "type": "sqrt", "range": [0.5, 8] },
+              "legend": {
+                "title": "Visitors",
+                "tickCount": 7,
+                "format": ",.0f",
+                "orient": "none",
+                "legendX": 750,
+                "legendY": 70,
+                "direction": "vertical",
+                "labelFontSize": 11,
+                "titleFontSize": 11,
+                "fillColor": "#ffffffcc",
+                "strokeColor": "#ccc",
+                "cornerRadius": 6,
+                "padding": 6
+              }
+            },
+            "tooltip": [
+              { "field": "Country", "title": "Country" },
+              { "field": "Year", "title": "Year" },
+              { "field": "Tourists", "title": "Visitors", "format": ",.0f" },
+              { "field": "rank", "title": "Rank" }
+            ]
+          }
+        },
+
+        {
+          "mark": { "type": "circle", "opacity": 0.85, "size": 80, "color": "#0b07d6" },
+          "encoding": {
+            "longitude": { "field": "origin_longitude" },
+            "latitude": { "field": "origin_latitude" },
+            "tooltip": [
+              { "field": "Country", "title": "Country" },
+              { "field": "Year", "title": "Year" },
+              { "field": "Tourists", "title": "Visitors", "format": ",.0f" },
+              { "field": "rank", "title": "Rank" }
+            ]
+          }
+        },
+
+        {
+          "transform": [{ "filter": "datum.rank <= 5" }],
+          "mark": {
+            "type": "text",
+            "fontSize": 10,
+            "fontWeight": "bold",
+            "dy": -6,
+            "color": "black"
+          },
+          "encoding": {
+            "longitude": { "field": "origin_longitude" },
+            "latitude": { "field": "origin_latitude" },
+            "text": { "field": "Country" }
+          }
+        }
+      ]
+    },
+
+    {
+      "data": { "values": [{ "Destination": "Malaysia (Kuala Lumpur)" }] },
+      "mark": { "type": "circle", "filled": true, "size": 120, "color": "#ffff68" },
+      "encoding": {
+        "longitude": { "datum": 101.6869 },
+        "latitude": { "datum": 3.139 },
+        "tooltip": [{ "field": "Destination", "title": "Destination" }]
+      }
+    },
+
+    {
+      "data": { "values": [{ "label": "Malaysia" }] },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dx": -50,
+        "dy": -10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "black"
+      },
+      "encoding": {
+        "longitude": { "datum": 101.6869 },
+        "latitude": { "datum": 3.139 },
+        "text": { "field": "label" }
+      }
+    }
+  ],
+
+  "config": {
+    "title": { "fontSize": 14, "font": "sans-serif", "color": "black" },
+    "axis": { "labelFontSize": 12, "titleFontSize": 13 }
+  }
+}

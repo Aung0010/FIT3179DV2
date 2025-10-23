@@ -1,0 +1,106 @@
+Series,Year,State,Sector,Value
+abs,2023,Johor,Overall,148204.766
+abs,2023,Johor,Agriculture,17205.216
+abs,2023,Johor,Mining,691.086
+abs,2023,Johor,Manufacturing,44165.268
+abs,2023,Johor,Construction,4484.893
+abs,2023,Johor,Services,79960.534
+abs,2023,Johor,Import Duties,1697.769
+abs,2023,Kedah,Overall,51782.054
+abs,2023,Kedah,Agriculture,5527.501
+abs,2023,Kedah,Mining,121.952
+abs,2023,Kedah,Manufacturing,15137.514
+abs,2023,Kedah,Construction,1576.896
+abs,2023,Kedah,Services,29115.645
+abs,2023,Kedah,Import Duties,302.547
+abs,2023,Kelantan,Overall,27647.952
+abs,2023,Kelantan,Agriculture,5609.939
+abs,2023,Kelantan,Mining,424.836
+abs,2023,Kelantan,Manufacturing,1265.084
+abs,2023,Kelantan,Construction,511.92
+abs,2023,Kelantan,Services,19799.217
+abs,2023,Kelantan,Import Duties,36.957
+abs,2023,Melaka,Overall,46933.449
+abs,2023,Melaka,Agriculture,4838.454
+abs,2023,Melaka,Mining,64.889
+abs,2023,Melaka,Manufacturing,16951.271
+abs,2023,Melaka,Construction,996.003
+abs,2023,Melaka,Services,24017.86
+abs,2023,Melaka,Import Duties,64.971
+abs,2023,Negeri Sembilan,Overall,51864.043
+abs,2023,Negeri Sembilan,Agriculture,3156.776
+abs,2023,Negeri Sembilan,Mining,224.402
+abs,2023,Negeri Sembilan,Manufacturing,19627.523
+abs,2023,Negeri Sembilan,Construction,1322.75
+abs,2023,Negeri Sembilan,Services,27435.109
+abs,2023,Negeri Sembilan,Import Duties,97.482
+abs,2023,Pahang,Overall,64941.717
+abs,2023,Pahang,Agriculture,14232.855
+abs,2023,Pahang,Mining,626.959
+abs,2023,Pahang,Manufacturing,14038.951
+abs,2023,Pahang,Construction,2171.957
+abs,2023,Pahang,Services,33833.324
+abs,2023,Pahang,Import Duties,37.671
+abs,2023,Perak,Overall,82558.744
+abs,2023,Perak,Agriculture,11682.179
+abs,2023,Perak,Mining,486.814
+abs,2023,Perak,Manufacturing,15951.746
+abs,2023,Perak,Construction,2032.742
+abs,2023,Perak,Services,52345.472
+abs,2023,Perak,Import Duties,59.791
+abs,2023,Perlis,Overall,6343.178
+abs,2023,Perlis,Agriculture,1101.382
+abs,2023,Perlis,Mining,33.013
+abs,2023,Perlis,Manufacturing,484.303
+abs,2023,Perlis,Construction,158.567
+abs,2023,Perlis,Services,4451.576
+abs,2023,Perlis,Import Duties,114.338
+abs,2023,Pulau Pinang,Overall,115956.997
+abs,2023,Pulau Pinang,Agriculture,2230.697
+abs,2023,Pulau Pinang,Mining,153.618
+abs,2023,Pulau Pinang,Manufacturing,53893.41
+abs,2023,Pulau Pinang,Construction,3363.574
+abs,2023,Pulau Pinang,Services,55657.576
+abs,2023,Pulau Pinang,Import Duties,658.123
+abs,2023,Sabah,Overall,83196.915
+abs,2023,Sabah,Agriculture,12649.256
+abs,2023,Sabah,Mining,19389.615
+abs,2023,Sabah,Manufacturing,6032.934
+abs,2023,Sabah,Construction,2486.354
+abs,2023,Sabah,Services,42375.969
+abs,2023,Sabah,Import Duties,262.788
+abs,2023,Sarawak,Overall,142351.83
+abs,2023,Sarawak,Agriculture,15028.88
+abs,2023,Sarawak,Mining,29605.348
+abs,2023,Sarawak,Manufacturing,37695.875
+abs,2023,Sarawak,Construction,5059.113
+abs,2023,Sarawak,Services,54543.192
+abs,2023,Sarawak,Import Duties,419.421
+abs,2023,Selangor,Overall,406071.453
+abs,2023,Selangor,Agriculture,4564.477
+abs,2023,Selangor,Mining,827.027
+abs,2023,Selangor,Manufacturing,119571.527
+abs,2023,Selangor,Construction,20060.19
+abs,2023,Selangor,Services,247683.629
+abs,2023,Selangor,Import Duties,13364.603
+abs,2023,Terengganu,Overall,38201.414
+abs,2023,Terengganu,Agriculture,2857.034
+abs,2023,Terengganu,Mining,207.689
+abs,2023,Terengganu,Manufacturing,14083.591
+abs,2023,Terengganu,Construction,1161.791
+abs,2023,Terengganu,Services,19876.587
+abs,2023,Terengganu,Import Duties,14.723
+abs,2023,W.P. Kuala Lumpur,Overall,249301.544
+abs,2023,W.P. Kuala Lumpur,Agriculture,0
+abs,2023,W.P. Kuala Lumpur,Mining,152.658
+abs,2023,W.P. Kuala Lumpur,Manufacturing,6412.314
+abs,2023,W.P. Kuala Lumpur,Construction,11121.63
+abs,2023,W.P. Kuala Lumpur,Services,230391.822
+abs,2023,W.P. Kuala Lumpur,Import Duties,1221.887
+abs,2023,W.P. Labuan,Overall,8115.199
+abs,2023,W.P. Labuan,Agriculture,126.045
+abs,2023,W.P. Labuan,Mining,0
+abs,2023,W.P. Labuan,Manufacturing,1382.377
+abs,2023,W.P. Labuan,Construction,150.551
+abs,2023,W.P. Labuan,Services,6416.974
+abs,2023,W.P. Labuan,Import Duties,39.252
