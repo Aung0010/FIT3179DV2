@@ -4,7 +4,7 @@
   "width": 700,
   "height": 400,
   "data": {
-    "url": "data/Expenditure_Component.csv",
+    "url": "Expenditure_Component.csv",
     "format": { "type": "csv" }
   },
   "title": { 
@@ -78,3 +78,4 @@
     "title": { "fontSize": 14 }
   }
 }
+
