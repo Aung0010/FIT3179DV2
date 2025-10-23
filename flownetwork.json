@@ -34,7 +34,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/ne_50m_admin_0_countries.json",
+        "url": "ne_50m_admin_0_countries.json",
         "format": { "type": "topojson", "feature": "ne_50m_admin_0_countries" }
       },
       "mark": {
@@ -46,7 +46,7 @@
     },
 
     {
-      "data": { "url": "data/top10_tourist_country.csv" },
+      "data": { "url": "top10_tourist_country.csv" },
       "transform": [
         { "filter": "datum.Year == YearSelection" },
         {
@@ -195,3 +195,4 @@
     "axis": { "labelFontSize": 12, "titleFontSize": 13 }
   }
 }
+
