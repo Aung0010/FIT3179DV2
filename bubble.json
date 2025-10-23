@@ -3,7 +3,7 @@
   "background": "transparent",
   "width": 800,
   "height": 400,
-  "data": { "url": "data/tourist_gdp.csv" },
+  "data": { "url": "tourist_gdp.csv" },
 
   "transform": [
     {
@@ -86,3 +86,4 @@
     "title": { "fontSize": 15, "anchor": "start" }
   }
 }
+
