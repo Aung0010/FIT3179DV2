@@ -3,7 +3,7 @@
   "background": "transparent",
   "width": 700,
   "height": 400,
-  "data": {"url": "data/gdp_state_2023.csv"},
+  "data": {"url": "gdp_state_2023.csv"},
 
   "transform": [
     {"filter": "datum.Sector == 'Overall'"},
@@ -51,4 +51,5 @@
     "axis": {"labelFontSize": 12, "titleFontSize": 13}, 
     "title": {"fontSize": 14}
   }
+
 }
