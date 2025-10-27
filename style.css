@@ -70,6 +70,10 @@ body {
   font-weight: 500;
 }
 
+.small-font {
+  color: black;
+}
+
 
 
 /* --- Headings --- */
@@ -145,6 +149,7 @@ footer { margin-top: 40px; border-top:1px solid #ddd; padding-top: 16px; text-al
   padding-left: 20px;   /* default is ~40px, which is why it looks offset */
   margin-left: 0;
 }
+
 
 
 
